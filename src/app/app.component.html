@@ -1,0 +1,29 @@
+<div>
+  <h1>MultiVariate Feature Flag</h1>
+</div>
+<div class="form">
+  <form [formGroup]="inputForm">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error *ngIf="inputForm.get('email')?.hasError">Enter a valid email</mat-error>
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <mat-label>Select User</mat-label>
+      <mat-select [(value)]="selectedEmail">
+        <mat-option value="user1@harness.io">user1&#64;harness.io</mat-option>
+        <mat-option value="user2@harness.io">user2&#64;harness.io</mat-option>
+      </mat-select> 
+    </mat-form-field> -->
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="!inputForm.valid" type="submit" (click)="sendUser()">Submit</button>
+    </div>
+  </form>
+  <mat-form-field class="flagvalue">
+    <mat-label>Flag value</mat-label>
+    <textarea matInput>{{flagValue}}</textarea>
+  </mat-form-field>
+</div>
+
+
+<router-outlet />
